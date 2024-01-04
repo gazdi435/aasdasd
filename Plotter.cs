@@ -58,20 +58,63 @@ namespace ConsoleApp1
                 actTool = toolNum;
             }
         }
-        //CIGÁNY VAGY!
-        /*
-        public void Draw(int newX, int newY)
+        public void Draw(int oldX,int oldY,int newX, int newY)
         {
-            //ez unity. get real.
-            int length = Convert.ToInt16(Math.Sqrt((actX - actY) ^ 2 + (newX - newY) ^ 2));
-            if (actX < newX)//nem
+            
+        
+            Console.Clear();
+            int xLength = Math.Abs(oldX - newX);
+            int yLength = Math.Abs(oldY - newY);
+        
+            if (oldX<newX)
             {
-                for (int i = 1; i <= length; i++)
+                if (oldY<=newY)
                 {
-                    actX
+                    for (int i = 0; i < xLength; i++)
+                    {
+                        Console.SetCursorPosition(oldX + i, oldY + (i * yLength / xLength));
+                        Console.Write("*");
+                    }
+                }
+                else if(oldY>newY)
+                {
+                    for (int i = 0; i < xLength; i++)
+                    {
+                        Console.SetCursorPosition(oldX + i, oldY - (i * yLength / xLength));
+                        Console.Write("*");
+                        
+                    }
+                }
+                else
+                {
+        
+                }
+            }else if (oldX > newX)
+            {
+                if (oldY <= newY)
+                {
+                    for (int i = 1; i <= xLength; i++)
+                    {
+                        Console.SetCursorPosition(oldX - i, oldY + (i * yLength / xLength));
+                        Console.Write("*");
+                    }
+                }
+                else if (oldY > newY)
+                {
+                    for (int i = 1; i <= xLength; i++)
+                    {
+                        Console.SetCursorPosition(oldX - i, oldY - (i * yLength / xLength));
+                        Console.Write("*");
+                    }
+                }
+                else
+                {
+        
                 }
             }
+        
+        
+        
         }
-        */
     }
 }
